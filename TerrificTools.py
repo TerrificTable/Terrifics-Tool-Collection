@@ -33,7 +33,7 @@ buttonList = [
     },
     {
         "label": "This Programm",
-        "url": "https://github.com/TerrificTable/Webhook-Tools"
+        "url": "https://github.com/TerrificTable/"
     }
 ]
 
@@ -170,6 +170,23 @@ def terminate():
         main()
 
 
+def pinger():
+    cmd("cls;clear")
+    cmd("title [Terrifics-Tools.py - Pinger]")
+    print(f" {inf} Enter IP")
+    ip = str(input(f" {inp} "))
+
+    while True:
+        if cmd("ping -n 1 " + ip + ">nul") == 0:
+            print(ip + " is alive!")
+            cmd("color " + str(random.randrange(0, 9)))
+        else:
+            print(ip + " Get downed SKID")
+            cmd("color " + str(random.randrange(0, 9)))
+            time.sleep(2)
+            cmd("mode con:cols=120lines=20")
+
+
 def Tokengen():
     try:
         N = input("How many you want?: ")
@@ -212,7 +229,7 @@ def Tokengen():
                         f.write(token + "\n")
 
                 elif "rate limited." in r.text:
-                    print("[-] You are being rate limited.")
+                    print(f" {err} You are being rate limited.")
 
                 else:
                     print(f'{Fore.LIGHTRED_EX}Invalid{Fore.RESET} | {token}')
@@ -222,10 +239,6 @@ def Tokengen():
     except:
         main()
 
-
-#####################
-## -Check Webhook- ##
-#####################
 
 def checkwebhook(w):
     try:
@@ -237,10 +250,6 @@ def checkwebhook(w):
     except:
         return False
 
-
-#####################
-## -Sender Module- ##
-#####################
 
 def sender():
     try:
@@ -306,10 +315,6 @@ def sender():
         main()
 
 
-######################
-## -Spammer Module- ##
-######################
-
 def spammer():
     try:
         cmd('cls; clear')
@@ -355,10 +360,6 @@ def spammer():
         main()
 
 
-######################
-## -Deleter Module- ##
-######################
-
 def deleter():
     try:
         cmd('cls; clear')
@@ -392,10 +393,6 @@ def deleter():
         main()
 
 
-######################
-## -Checker Module- ##
-######################
-
 def checker():
     try:
         cmd("cls; clear")
@@ -423,10 +420,6 @@ def checker():
     except Exception as e:
         main()
 
-######################
-## -Message Sender- ##
-######################
-
 
 def sendmessage(w, m):
     try:
@@ -437,10 +430,6 @@ def sendmessage(w, m):
             print(f" {err} Message failed to sent")
     except:
         print(f" {err} Message failed to sent")
-
-####################
-## -Chat Session- ##
-####################
 
 
 def chatsession():
@@ -465,10 +454,6 @@ def chatsession():
     except:
         main()
 
-
-#########################
-## -ChangeInfo Module- ##
-#########################
 
 def changeinfo():
     try:
@@ -546,6 +531,7 @@ def main():
             {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[1]{Style.RESET_ALL} Webhook Tools   {Fore.LIGHTMAGENTA_EX}║
             {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[2]{Style.RESET_ALL} Discord Tool    {Fore.LIGHTMAGENTA_EX}║
             {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[3]{Style.RESET_ALL} ProxyScrape     {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[4]{Style.RESET_ALL} Pinger          {Fore.LIGHTMAGENTA_EX}║
             {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[X]{Style.RESET_ALL} Exit            {Fore.LIGHTMAGENTA_EX}║
             {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}===================={Fore.YELLOW}[x]{Style.RESET_ALL}''')
         option = input(f" {inp} ")
@@ -555,6 +541,8 @@ def main():
             discordtools()
         elif str(option) == "3":
             proxyscraper()
+        elif str(option) == "4":
+            pinger()
         else:
             exit()
     except KeyboardInterrupt:
@@ -667,4 +655,6 @@ def singleutils():
         main()
     except:
         main()
+
+
 main()
