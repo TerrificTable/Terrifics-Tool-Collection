@@ -134,6 +134,8 @@ def proxyscraper():
             file.write(results)
         print(f' {out} {Fore.LIGHTGREEN_EX}done socks4{Style.RESET_ALL}')
         time.sleep(2)
+        input()
+        main()
     except KeyboardInterrupt:
         main()
     except:
@@ -714,7 +716,7 @@ def get_config():
         else:
             path = path.replace("\\", "/").replace("//", "/")
             pass
-        
+
         if not os.path.exists(path):
             with io.open(path, "w") as f:
                 data = {
@@ -940,9 +942,9 @@ def main():
         elif str(option) == "5":
             viewbot()
         elif str(option) == "6":
-            pinger()
-        elif str(option) == "7":
             quea()
+        elif str(option) == "7":
+            pinger()
         else:
             exit()
     except KeyboardInterrupt:
