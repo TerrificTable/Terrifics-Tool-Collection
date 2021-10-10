@@ -711,7 +711,13 @@ def get_config():
         global PATH
         path = input(f" {inp} Config file path without config.json: ")
 
-        path = path + "/config.json"
+        if path.__contains__("/config.json") == False:
+            path = path.replace("\\", "/") + "/config.json"
+            path = path.replace("//", "/")
+        else:
+            path = path.replace("\\", "/").replace("//", "/")
+            pass
+        
         if not os.path.exists(path):
             with io.open(path, "w") as f:
                 data = {
@@ -1166,7 +1172,7 @@ def viewbot():
         global channel
         os.system("title [Terrific's ViewBot - YouTube]")
         channel = input(f" {inp} Channel url: ")
-        if channel.startswith("https://www.youtube.com/c/") == False and channel.startswith("https://www.youtube.com/channel/") == False:
+        if channel.__contains__("https://www.youtube.com/c/") == False and channel.__contains__("https://www.youtube.com/channel/") == False and channel.__contains__("https://youtube.com/channel/") == False and channel.__contains__("https://youtube.com/c/") == False:
             print(f" {err} Invalid Input, press [ENTER] to exit")
             input()
             exit()
@@ -1186,9 +1192,9 @@ def viewbot():
         d = input(f" {inp} You want a custom or random duration [c/r]: ")
         sessions = input(f" {inp} How much view's you want to bot: ")
 
-        if url.startswith("https://youtube.com/") or url.startswith("https://youtu.be/"):
+        if url.__contains__("https://youtube.com/") or url.__contains__("https://youtu.be/"):
             os.system("title [Terrific's ViewBot - YouTube]")
-        elif url.startswith("https://www.tiktok.com") or url.startswith("www.tiktok.com") or url.startswith("https://tiktok.com"):
+        elif url.__contains__("https://www.tiktok.com") or url.__contains__("www.tiktok.com") or url.__contains__("https://tiktok.com"):
             os.system("title [Terrific's ViewBot - TikTok]")
         viewbotv1()
 
@@ -1199,7 +1205,7 @@ def viewbot():
         duration = input(f" {inp} Enter Duration (min): ")
         sessions = input(f" {inp} How much view's you want to bot: ")
 
-        if url.startswith("https://youtube.com/watch") == False and url.startswith("https://www.youtube.com/watch") == False:
+        if url.__contains__("https://youtube.com/watch") == False and url.__contains__("https://www.youtube.com/watch") == False:
             print(f" {err} Invalid Input, press [ENTER] to exit")
             input()
             exit()
