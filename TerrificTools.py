@@ -3,6 +3,7 @@ try:
     from os import system as cmd
     import requests
     from lxml.html import fromstring
+    import webbrowser
     import os
     import time
     import sys
@@ -516,6 +517,9 @@ def changeinfo():
 
 def generateCheck():
     try:
+        cmd('cls; clear')
+        cmd("mode 115, 30")
+        cmd("title [TerrificTools - NitroGen]")
         os.system('cls' if os.name == 'nt' else 'clear')
         while True:
             code = ''.join(random.choices(
@@ -545,6 +549,154 @@ def generateCheck():
         main()
 
 
+def links():
+    try:
+        cmd('cls; clear')
+        cmd("mode 115, 30")
+        cmd("title [TerrificTools - NiceLinks]")
+        print(f'''
+            {Fore.RED} [1]  {Fore.WHITE}FakeNameGen      {Fore.CYAN}(https://www.fakenamegenerator.com)
+            {Fore.RED} [2]  {Fore.WHITE}AnonFiles        {Fore.CYAN}(https://anonfiles.com)
+            {Fore.RED} [3]  {Fore.WHITE}Rat              {Fore.CYAN}(https://github.com/quasar/QuasarRAT)
+            {Fore.RED} [4]  {Fore.WHITE}KeyWord          {Fore.CYAN}(https://keywordtool.io)
+            {Fore.RED} [5]  {Fore.WHITE}VPN              {Fore.CYAN}(https://courvix.com/vpn.php)
+            {Fore.RED} [6]  {Fore.WHITE}CyberHub         {Fore.CYAN}(https://cyber-hub.pw)
+            {Fore.RED} [7]  {Fore.WHITE}VedBex           {Fore.CYAN}(https://vedbex.com/tools/home)
+            {Fore.RED} [8]  {Fore.WHITE}Ascii            {Fore.CYAN}(https://patorjk.com/software/taag)
+            {Fore.RED} [9]  {Fore.WHITE}IpGenerator      {Fore.CYAN}(https://commentpicker.com/ip-address-generator.php)
+            {Fore.RED} [10] {Fore.WHITE}SteamGenerator   {Fore.CYAN}(https://accgen.cathook.club)
+            {Fore.RED} [11] {Fore.WHITE}FreeAlts         {Fore.CYAN}(https://freealts.pw)
+            {Fore.RED} [12] {Fore.WHITE}SpecialFonts     {Fore.CYAN}(https://messletters.com/en)
+            {Fore.RED} [13] {Fore.WHITE}PhoneSpoofer     {Fore.CYAN}(https://nl.spoofmyphone.com)
+            {Fore.RED} [14] {Fore.WHITE}SMSBomber        {Fore.CYAN}(https://bombitup.net)
+            {Fore.RED} [15] {Fore.WHITE}IpLogger         {Fore.CYAN}(https://iplogger.org){Fore.WHITE}/{Fore.CYAN}(https://grabify.link)
+            {Fore.RED} [16] {Fore.WHITE}BottingPanel     {Fore.CYAN}(https://naizop.com)
+            {Fore.RED} [17] {Fore.WHITE}Instagramid      {Fore.CYAN}(https://commentpicker.com/nl/instagram-getbruikers-id.php)
+            {Fore.RED} [18] {Fore.WHITE}RickRoll         {Fore.CYAN}(https://youtube.com/watch?v=d!w4w9WgXcQ)
+            {Fore.RED} [19] {Fore.WHITE}MainMenu
+            {Fore.RED} [X]  {Fore.WHITE}Exit
+        ''')
+        i = input(f" {inp} ")
+        if str(i) == "1":
+            webbrowser.open("https://www.fakenamegenerator.com")
+            print(f" {out} Press Enter to return")
+            input()
+            main()
+        elif str(i) == "2":
+            webbrowser.open("https://anonfiles.com")
+            print(f" {out} Press Enter to return")
+            input()
+            main()
+        elif str(i) == "3":
+            webbrowser.open("https://github.com/quasar/QuasarRAT")
+            print(f" {out} Press Enter to return")
+            input()
+            main()
+        elif str(i) == "4":
+            webbrowser.open("https://keywordtool.io")
+            print(f" {out} Press Enter to return")
+            input()
+            main()
+        elif str(i) == "5":
+            webbrowser.open("https://courvix.com/vpn.php")
+            print(f" {out} Press Enter to return")
+            input()
+            main()
+        elif str(i) == "6":
+            webbrowser.open("https://cyber-hub.pw")
+            print(f" {out} Press Enter to return")
+            input()
+            main()
+        elif str(i) == "7":
+            webbrowser.open("https://vedbex.com/tools/home")
+            print(f" {out} Press Enter to return")
+            input()
+            main()
+        elif str(i) == "8":
+            webbrowser.open("https://patorjk.com/software/taag")
+            print(f" {out} Press Enter to return")
+            input()
+            main()
+        elif str(i) == "9":
+            webbrowser.open(
+                "https://commentpicker.com/ip-address-generator.php")
+            print(f" {out} Press Enter to return")
+            input()
+            main()
+        elif str(i) == "10":
+            webbrowser.open("https://accgen.cathook.club")
+            print(f" {out} Press Enter to return")
+            input()
+            main()
+        elif str(i) == "10":
+            webbrowser.open("https://freealts.pw")
+            print(f" {out} Press Enter to return")
+            input()
+            main()
+        elif str(i) == "12":
+            webbrowser.open("https://messletters.com/en")
+            print(f" {out} Press Enter to return")
+            input()
+            main()
+        elif str(i) == "13":
+            webbrowser.open("https://nl.spoofmyphone.com")
+            print(f" {out} Press Enter to return")
+            input()
+            main()
+        elif str(i) == "14":
+            webbrowser.open("https://bombitup.net")
+            print(f" {out} Press Enter to return")
+            input()
+            main()
+        elif str(i) == "15":
+            print(f" {inf} Input What webside you want: ")
+            print(f"     - [1] iplogger.org")
+            print(f"     - [2] grabify.link")
+            i = input(f" {inp} ")
+            if str(i) == "1":
+                webbrowser.open("https://iplogger.org")
+                print(f" {out} Press Enter to return")
+                input()
+                main()
+            elif str(i) == "2":
+                webbrowser.open("https://grabify.link")
+                print(f" {out} Press Enter to return")
+                input()
+                main()
+            else:
+                print(f" {err} Invalid Input press [ENTER] to return")
+                input()
+                links()
+        elif str(i) == "16":
+            webbrowser.open("https://naizop.com")
+            print(f" {out} Press Enter to return")
+            input()
+            main()
+        elif str(i) == "17":
+            webbrowser.open(
+                "https://commentpicker.com/nl/instagram-getbruikers-id.php")
+            print(f" {out} Press Enter to return")
+            input()
+            main()
+        elif str(i) == "18":
+            webbrowser.open("https://youtube.com/watch?v=d!w4w9WgXcQ")
+            print(f" {out} Press Enter to return")
+            input()
+            main()
+        elif str(i) == "19":
+            main()
+        elif str(i).lower() == "x":
+            exit()
+        else:
+            print(f" {err} Invalid Input")
+            input()
+            links()
+    except KeyboardInterrupt:
+        main()
+    except:
+        main()
+
+
 def main():
     try:
         cmd("cls;clear")
@@ -562,6 +714,7 @@ def main():
             {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[1]{Style.RESET_ALL} Webhook Tools   {Fore.LIGHTMAGENTA_EX}║
             {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[2]{Style.RESET_ALL} Discord Tool    {Fore.LIGHTMAGENTA_EX}║
             {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[3]{Style.RESET_ALL} ProxyScrape     {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[5]{Style.RESET_ALL} NiceLinks       {Fore.LIGHTMAGENTA_EX}║
             {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[4]{Style.RESET_ALL} Pinger          {Fore.LIGHTMAGENTA_EX}║
             {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[X]{Style.RESET_ALL} Exit            {Fore.LIGHTMAGENTA_EX}║
             {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}===================={Fore.YELLOW}[x]{Style.RESET_ALL}''')
@@ -574,6 +727,8 @@ def main():
             proxyscraper()
         elif str(option) == "4":
             pinger()
+        elif str(option) == "5":
+            links()
         else:
             exit()
     except KeyboardInterrupt:
