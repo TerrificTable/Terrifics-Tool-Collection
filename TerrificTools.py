@@ -1,3 +1,6 @@
+from re import S
+
+
 try:
     from colorama import Fore, Style
     from os import system as cmd
@@ -27,6 +30,7 @@ err = f"[{Fore.RED}-{Style.RESET_ALL}]"
 inf = f"[{Fore.YELLOW}i{Style.RESET_ALL}]"
 out = f"[{Fore.GREEN}:{Style.RESET_ALL}]"
 log = f"[{Fore.CYAN}={Style.RESET_ALL}]"
+a = 0
 
 ###################
 ## -Discord RPC- ##
@@ -869,17 +873,19 @@ queueCount = json.loads(que.text)
 players = requests.get("https://2bqueue.info/players")
 playerNames = json.loads(players.text)
 
+
 def getplayer(opt: str):
-    if str(opt) == "que":    
+    if str(opt) == "que":
         queplayers = playerNames['queue']["players"]
         print(f'{out} Players in Regular Queue: ')
         for i in range(len(queplayers)):
             print(f"{out} {i}. " + queplayers[i])
-    elif str(opt) == "server": 
+    elif str(opt) == "server":
         serverplayers = playerNames['server']["players"]
         print(f'{out} Players on Regular Queue: ')
         for i in range(len(serverplayers)):
             print(f"{out} {i}. " + serverplayers[i])
+
 
 def getskin(deb: str):
     skin = input(f"{inp} Input Username $ {Fore.BLUE}")
@@ -890,23 +896,28 @@ def getskin(deb: str):
         pass
 
 
-
 def main():
+    global a
     try:
         cmd("cls;clear")
         cmd("title [Terrifics-Tools.py - Mainmenu]")
         cmd("mode 115, 30")
         print(logo())
 
-        time.sleep(1)
-        slowprint(
-            f'{Fore.LIGHTBLACK_EX}                    Made by: {Fore.RED}Terrific{Style.RESET_ALL}', .02)
-        time.sleep(1)
+        if a == 0:
+            time.sleep(1)
+            slowprint(
+                f'{Fore.LIGHTBLACK_EX}                    Made by: {Fore.RED}Terrific{Style.RESET_ALL}', .02)
+            time.sleep(1)
+            a += 1
+        else:
+            print(f'{Fore.LIGHTBLACK_EX}                    Made by: {Fore.RED}Terrific{Style.RESET_ALL}')
+            pass
 
         print(f'''\n\n
             {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}===================={Fore.YELLOW}[x]
             {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[1]{Style.RESET_ALL} Webhook Tools   {Fore.LIGHTMAGENTA_EX}║
-            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[2]{Style.RESET_ALL} Discord Tool    {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[2]{Style.RESET_ALL} Discord Tools   {Fore.LIGHTMAGENTA_EX}║
             {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[3]{Style.RESET_ALL} Proxy Scraper   {Fore.LIGHTMAGENTA_EX}║
             {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[4]{Style.RESET_ALL} Nice Links      {Fore.LIGHTMAGENTA_EX}║
             {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[5]{Style.RESET_ALL} ViewBot         {Fore.LIGHTMAGENTA_EX}║
@@ -926,9 +937,9 @@ def main():
         elif str(option) == "5":
             viewbot()
         elif str(option) == "6":
-            que()
-        elif str(option) == "7":
             pinger()
+        elif str(option) == "7":
+            quea()
         else:
             exit()
     except KeyboardInterrupt:
@@ -942,6 +953,17 @@ def discordtools():
         cmd('cls; clear')
         cmd(f'mode 115, 30')
         cmd("title [Terrifics-Tools.py - Discord-Tools]")
+        print(f"""{Fore.RED}
+            ▓█████▄  ██▓  ██████  ▄████▄   ▒█████   ██▀███  ▓█████▄ ▄▄▄█████▓ ▒█████   ▒█████   ██▓      ██████ 
+            ▒██▀ ██▌▓██▒▒██    ▒ ▒██▀ ▀█  ▒██▒  ██▒▓██ ▒ ██▒▒██▀ ██▌▓  ██▒ ▓▒▒██▒  ██▒▒██▒  ██▒▓██▒    ▒██    ▒ 
+            ░██   █▌▒██▒░ ▓██▄   ▒▓█    ▄ ▒██░  ██▒▓██ ░▄█ ▒░██   █▌▒ ▓██░ ▒░▒██░  ██▒▒██░  ██▒▒██░    ░ ▓██▄   
+            ░▓█▄   ▌░██░  ▒   ██▒▒▓▓▄ ▄██▒▒██   ██░▒██▀▀█▄  ░▓█▄   ▌░ ▓██▓ ░ ▒██   ██░▒██   ██░▒██░      ▒   ██▒
+            ░▒████▓ ░██░▒██████▒▒▒ ▓███▀ ░░ ████▓▒░░██▓ ▒██▒░▒████▓   ▒██▒ ░ ░ ████▓▒░░ ████▓▒░░██████▒▒██████▒▒
+            ▒▒▓  ▒ ░▓  ▒ ▒▓▒ ▒ ░░ ░▒ ▒  ░░ ▒░▒░▒░ ░ ▒▓ ░▒▓░ ▒▒▓  ▒   ▒ ░░   ░ ▒░▒░▒░ ░ ▒░▒░▒░ ░ ▒░▓  ░▒ ▒▓▒ ▒ ░
+            ░ ▒  ▒  ▒ ░░ ░▒  ░ ░  ░  ▒     ░ ▒ ▒░   ░▒ ░ ▒░ ░ ▒  ▒     ░      ░ ▒ ▒░   ░ ▒ ▒░ ░ ░ ▒  ░░ ░▒  ░ ░
+            ░ ░  ░  ▒ ░░  ░  ░  ░        ░ ░ ░ ▒    ░░   ░  ░ ░  ░   ░      ░ ░ ░ ▒  ░ ░ ░ ▒    ░ ░   ░  ░  ░  
+            ░     ░        ░  ░ ░          ░ ░     ░        ░                 ░ ░      ░ ░      ░  ░      ░  
+            ░                   ░                           ░                                                  {Style.RESET_ALL}""")
         print(f'''
             {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}=========================={Fore.YELLOW}[x]
             {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[1]{Style.RESET_ALL} Terminate Token       {Fore.LIGHTMAGENTA_EX}║
@@ -1024,6 +1046,17 @@ def singleutils():
         cmd("cls")
         cmd("mode 115, 30")
         cmd("title [Terrific's Webhook-Tools - SingleUtils]")
+        print(f"""{Fore.RED}
+            ██████  ██▓ ███▄    █   ▄████ ▓█████  █    ██ ▄▄▄█████▓ ██▓ ██▓      ██████ 
+            ▒██    ▒ ▓██▒ ██ ▀█   █  ██▒ ▀█▒▓█   ▀  ██  ▓██▒▓  ██▒ ▓▒▓██▒▓██▒    ▒██    ▒ 
+            ░ ▓██▄   ▒██▒▓██  ▀█ ██▒▒██░▄▄▄░▒███   ▓██  ▒██░▒ ▓██░ ▒░▒██▒▒██░    ░ ▓██▄   
+            ▒   ██▒░██░▓██▒  ▐▌██▒░▓█  ██▓▒▓█  ▄ ▓▓█  ░██░░ ▓██▓ ░ ░██░▒██░      ▒   ██▒
+            ▒██████▒▒░██░▒██░   ▓██░░▒▓███▀▒░▒████▒▒▒█████▓   ▒██▒ ░ ░██░░██████▒▒██████▒▒
+            ▒ ▒▓▒ ▒ ░░▓  ░ ▒░   ▒ ▒  ░▒   ▒ ░░ ▒░ ░░▒▓▒ ▒ ▒   ▒ ░░   ░▓  ░ ▒░▓  ░▒ ▒▓▒ ▒ ░
+            ░ ░▒  ░ ░ ▒ ░░ ░░   ░ ▒░  ░   ░  ░ ░  ░░░▒░ ░ ░     ░     ▒ ░░ ░ ▒  ░░ ░▒  ░ ░
+            ░  ░  ░   ▒ ░   ░   ░ ░ ░ ░   ░    ░    ░░░ ░ ░   ░       ▒ ░  ░ ░   ░  ░  ░  
+                ░   ░           ░       ░    ░  ░   ░               ░      ░  ░      ░  
+                                                                                        {Style.RESET_ALL}""")
         print(f'''
             {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}==================={Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}===================={Fore.YELLOW}[x]
             {Fore.LIGHTMAGENTA_EX} ║ {Fore.RED}[1] {Style.RESET_ALL}Chat Session    {Fore.LIGHTMAGENTA_EX}║  {Fore.RED}[3] {Style.RESET_ALL}Return to Menu  {Fore.LIGHTMAGENTA_EX}║
@@ -1047,10 +1080,18 @@ def singleutils():
     except:
         main()
 
-def que():
+
+def quea():
     cmd('cls; clear')
     cmd(f'mode 115, 30')
     cmd("title [Terrifics-Tools.py - 2bQue]")
+    print(f"""
+        {Fore.MAGENTA}  ___  _     {Fore.CYAN}  ____             
+        {Fore.MAGENTA} |__ \| |    {Fore.CYAN} / __ \            
+        {Fore.MAGENTA}    ) | |__  {Fore.CYAN}| |  | |_   _  ___ 
+        {Fore.MAGENTA}   / /| '_ \ {Fore.CYAN}| |  | | | | |/ _ \
+        {Fore.MAGENTA}  / /_| |_) |{Fore.CYAN}| |__| | |_| |  __/
+        {Fore.MAGENTA} |____|_.__/ {Fore.CYAN} \___\_\\__,_|\___|{Style.RESET_ALL}""")
     print(f"""{Fore.MAGENTA}
             {Fore.YELLOW}[x]{Style.RESET_ALL}{Fore.MAGENTA}================================{Fore.YELLOW}[x]{Style.RESET_ALL}{Fore.MAGENTA}
             ║  {Fore.RED}[1]{Style.RESET_ALL}{Fore.MAGENTA}:  {Fore.WHITE}Queue Length{Style.RESET_ALL}{Fore.MAGENTA}              ║
@@ -1067,23 +1108,28 @@ def que():
         print(f'{out} Priority Queue Length: ' + str(queueCount['prio']))
         print(f'{out} Regular Queue Length: ' + str(queueCount['regular']))
         print(f'{out} Total Players in Queue: ' + str(queueCount['total']))
-        input(); que()
+        input()
+        quea()
     elif choise == '2':
         getplayer("que")
-        input(); que()
+        input()
+        quea()
     elif choise == '3':
         getplayer("server")
-        input(); que()
+        input()
+        quea()
     elif choise == '4':
         getskin("True")
-        input(); que()
+        input()
+        quea()
     elif choise == "5":
         main()
     elif choise.lower() == "x":
         exit()
     else:
         print(f'{err} That is not an option! ')
-        input(); que()
+        input()
+        quea()
 
 
 def viewbot():
@@ -1092,7 +1138,19 @@ def viewbot():
     global sessions
     os.system(f'mode 110,30')
     os.system('cls')
-    os.system("title [Terrific's - ViewBot] - Connected]")
+    os.system("title [Terrific's - ViewBot] - Connected")
+    print(f"""{Fore.RED}
+
+    ██▒   █▓ ██▓▓█████  █     █░ ▄▄▄▄    ▒█████  ▄▄▄█████▓
+    ▓██░   █▒▓██▒▓█   ▀ ▓█░ █ ░█░▓█████▄ ▒██▒  ██▒▓  ██▒ ▓▒
+    ▓██  █▒░▒██▒▒███   ▒█░ █ ░█ ▒██▒ ▄██▒██░  ██▒▒ ▓██░ ▒░
+    ▒██ █░░░██░▒▓█  ▄ ░█░ █ ░█ ▒██░█▀  ▒██   ██░░ ▓██▓ ░ 
+    ▒▀█░  ░██░░▒████▒░░██▒██▓ ░▓█  ▀█▓░ ████▓▒░  ▒██▒ ░ 
+    ░ ▐░  ░▓  ░░ ▒░ ░░ ▓░▒ ▒  ░▒▓███▀▒░ ▒░▒░▒░   ▒ ░░   
+    ░ ░░   ▒ ░ ░ ░  ░  ▒ ░ ░  ▒░▒   ░   ░ ▒ ▒░     ░    
+        ░░   ▒ ░   ░     ░   ░   ░    ░ ░ ░ ░ ▒    ░      
+        ░   ░     ░  ░    ░     ░          ░ ░           
+        ░                             ░   {Style.RESET_ALL}""")
     print(f'''
             {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}===================================================={Fore.YELLOW}[x]
             {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[1]  {Fore.WHITE}Watch Videos on a Channel (only YouTube)    {Fore.LIGHTMAGENTA_EX}║
