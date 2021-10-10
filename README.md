@@ -11,6 +11,7 @@ pip install colorama
 pip install requests
 pip install lxml
 pip install pypresnce
+pip install selenium
 ```      
 or you can run the run.bat file, which will install all requirements and run the python file
 
