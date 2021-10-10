@@ -920,16 +920,16 @@ def main():
             pass
 
         print(f'''\n\n
-            {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}===================={Fore.YELLOW}[x]
-            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[1]{Style.RESET_ALL} Webhook Tools   {Fore.LIGHTMAGENTA_EX}║
-            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[2]{Style.RESET_ALL} Discord Tools   {Fore.LIGHTMAGENTA_EX}║
-            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[3]{Style.RESET_ALL} Proxy Scraper   {Fore.LIGHTMAGENTA_EX}║
-            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[4]{Style.RESET_ALL} Nice Links      {Fore.LIGHTMAGENTA_EX}║
-            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[5]{Style.RESET_ALL} ViewBot         {Fore.LIGHTMAGENTA_EX}║
-            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[6]{Style.RESET_ALL} 2bQue           {Fore.LIGHTMAGENTA_EX}║
-            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[7]{Style.RESET_ALL} Pinger          {Fore.LIGHTMAGENTA_EX}║
-            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[X]{Style.RESET_ALL} Exit            {Fore.LIGHTMAGENTA_EX}║
-            {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}===================={Fore.YELLOW}[x]{Style.RESET_ALL}''')
+            {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}======================{Fore.YELLOW}[x]
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[1]{Style.RESET_ALL} Webhook Tools    {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[2]{Style.RESET_ALL} Discord Tools    {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[3]{Style.RESET_ALL} Proxy Scraper    {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[4]{Style.RESET_ALL} Nice Links       {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[5]{Style.RESET_ALL} ViewBot          {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[6]{Style.RESET_ALL} Pinger           {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[7]{Style.RESET_ALL} 2bQue            {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[X]{Style.RESET_ALL} Exit             {Fore.LIGHTMAGENTA_EX}║
+            {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}======================{Fore.YELLOW}[x]{Style.RESET_ALL}''')
         option = input(f" {inp} ")
         if str(option) == "1":
             webhooktools()
@@ -942,9 +942,9 @@ def main():
         elif str(option) == "5":
             viewbot()
         elif str(option) == "6":
-            quea()
-        elif str(option) == "7":
             pinger()
+        elif str(option) == "7":
+            quea()
         else:
             exit()
     except KeyboardInterrupt:
@@ -1094,7 +1094,7 @@ def quea():
         {Fore.MAGENTA}  ___  _     {Fore.CYAN}  ____             
         {Fore.MAGENTA} |__ \| |    {Fore.CYAN} / __ \            
         {Fore.MAGENTA}    ) | |__  {Fore.CYAN}| |  | |_   _  ___ 
-        {Fore.MAGENTA}   / /| '_ \ {Fore.CYAN}| |  | | | | |/ _ \
+        {Fore.MAGENTA}   / /| '_ \ {Fore.CYAN}| |  | | | | |/ _ \\
         {Fore.MAGENTA}  / /_| |_) |{Fore.CYAN}| |__| | |_| |  __/
         {Fore.MAGENTA} |____|_.__/ {Fore.CYAN} \___\_\\__,_|\___|{Style.RESET_ALL}""")
     print(f"""{Fore.MAGENTA}
