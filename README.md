@@ -20,12 +20,17 @@ Discord:
   - TokenGen
   - NitroGen and Checker
 
-Webhook
+Webhook:
   - WebhookSender
   - WebhokSpammer
   - WebhookDeleter
   - Webhook-ChatSession
   - Webhook-InfoChanger
+
+Viewbot:
+  - ViewBot v.1
+  - ViewBot v.2
+  - ChannelViewBot
 
 Other:
   - ProxyScraper
