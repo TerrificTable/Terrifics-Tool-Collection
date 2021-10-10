@@ -863,6 +863,34 @@ class viewbotv2():
         exit()
 
 
+que = requests.get("https://2bqueue.info/queue")
+queueCount = json.loads(que.text)
+
+players = requests.get("https://2bqueue.info/players")
+playerNames = json.loads(players.text)
+
+def getplayer(opt: str):
+    if str(opt) == "que":    
+        queplayers = playerNames['queue']["players"]
+        print(f'{out} Players in Regular Queue: ')
+        for i in range(len(queplayers)):
+            print(f"{out} {i}. " + queplayers[i])
+    elif str(opt) == "server": 
+        serverplayers = playerNames['server']["players"]
+        print(f'{out} Players on Regular Queue: ')
+        for i in range(len(serverplayers)):
+            print(f"{out} {i}. " + serverplayers[i])
+
+def getskin(deb: str):
+    skin = input(f"{inp} Input Username $ {Fore.BLUE}")
+    webbrowser.open("https://minotar.net/armor/body/" + skin, new=2)
+    if deb == "True":
+        webbrowser.open('https://minotar.net/skin/' + skin, new=2)
+    else:
+        pass
+
+
+
 def main():
     try:
         cmd("cls;clear")
@@ -994,10 +1022,10 @@ def singleutils():
         cmd("mode 115, 30")
         cmd("title [Terrific's Webhook-Tools - SingleUtils]")
         print(f'''
-        {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}==================={Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}===================={Fore.YELLOW}[x]
-        {Fore.LIGHTMAGENTA_EX} ║ {Fore.RED}[1] {Style.RESET_ALL}Chat Session    {Fore.LIGHTMAGENTA_EX}║  {Fore.RED}[3] {Style.RESET_ALL}Return to Menu  {Fore.LIGHTMAGENTA_EX}║
-        {Fore.LIGHTMAGENTA_EX} ║ {Fore.RED}[2] {Style.RESET_ALL}Change Info     {Fore.LIGHTMAGENTA_EX}║  {Fore.RED}[X] {Style.RESET_ALL}Exit            {Fore.LIGHTMAGENTA_EX}║
-        {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}==================={Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}===================={Fore.YELLOW}[x]{Style.RESET_ALL}''')
+            {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}==================={Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}===================={Fore.YELLOW}[x]
+            {Fore.LIGHTMAGENTA_EX} ║ {Fore.RED}[1] {Style.RESET_ALL}Chat Session    {Fore.LIGHTMAGENTA_EX}║  {Fore.RED}[3] {Style.RESET_ALL}Return to Menu  {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║ {Fore.RED}[2] {Style.RESET_ALL}Change Info     {Fore.LIGHTMAGENTA_EX}║  {Fore.RED}[X] {Style.RESET_ALL}Exit            {Fore.LIGHTMAGENTA_EX}║
+            {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}==================={Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}===================={Fore.YELLOW}[x]{Style.RESET_ALL}''')
         i = input(f" {inp} ")
         if str(i) == str(1):
             chatsession()
@@ -1016,6 +1044,44 @@ def singleutils():
     except:
         main()
 
+def que():
+    cmd('cls; clear')
+    cmd(f'mode 115, 30')
+    cmd("title [Terrifics-Tools.py - 2bQue]")
+    print(f"""{Fore.MAGENTA}
+            {Fore.YELLOW}[x]{Style.RESET_ALL}{Fore.MAGENTA}================================{Fore.YELLOW}[x]{Style.RESET_ALL}{Fore.MAGENTA}
+            ║  {Fore.RED}[1]{Style.RESET_ALL}{Fore.MAGENTA}:  {Fore.WHITE}Queue Length{Style.RESET_ALL}{Fore.MAGENTA}              ║
+            ║  {Fore.RED}[2]{Style.RESET_ALL}{Fore.MAGENTA}:  {Fore.WHITE}Players in Queue{Style.RESET_ALL}{Fore.MAGENTA}          ║
+            ║  {Fore.RED}[3]{Style.RESET_ALL}{Fore.MAGENTA}:  {Fore.WHITE}Players on Server{Style.RESET_ALL}{Fore.MAGENTA}         ║
+            ║  {Fore.RED}[4]{Style.RESET_ALL}{Fore.MAGENTA}:  {Fore.WHITE}Skin Downloader{Style.RESET_ALL}{Fore.MAGENTA}           ║
+            ║  {Fore.RED}[5]{Style.RESET_ALL}{Fore.MAGENTA}:  {Fore.WHITE}Return to Menu {Style.RESET_ALL}{Fore.MAGENTA}           ║
+            ║  {Fore.RED}[6]{Style.RESET_ALL}{Fore.MAGENTA}:  {Fore.WHITE}Exit{Style.RESET_ALL}{Fore.MAGENTA}                      ║
+            {Fore.YELLOW}[x]{Style.RESET_ALL}{Fore.MAGENTA}================================{Fore.YELLOW}[x]{Style.RESET_ALL}
+""")
+
+    choise = input(f'{inp} $ {Fore.BLUE}')
+    if choise == '1':
+        print(f'{out} Priority Queue Length: ' + str(queueCount['prio']))
+        print(f'{out} Regular Queue Length: ' + str(queueCount['regular']))
+        print(f'{out} Total Players in Queue: ' + str(queueCount['total']))
+        input(); que()
+    elif choise == '2':
+        getplayer("que")
+        input(); que()
+    elif choise == '3':
+        getplayer("server")
+        input(); que()
+    elif choise == '4':
+        getskin("True")
+        input(); que()
+    elif choise == "5":
+        main()
+    elif choise.lower() == "x":
+        exit()
+    else:
+        print(f'{err} That is not an option! ')
+        input(); que()
+
 
 def viewbot():
     global url
@@ -1023,15 +1089,15 @@ def viewbot():
     global sessions
     os.system(f'mode 110,30')
     os.system('cls')
-    os.system("title [Terrific's ViewBot - Connected]")
+    os.system("title [Terrific's - ViewBot] - Connected]")
     print(f'''
-    {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}===================================================={Fore.YELLOW}[x]
-    {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[1]  {Fore.WHITE}Watch Videos on a Channel (only YouTube)    {Fore.LIGHTMAGENTA_EX}║
-    {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[2]  {Fore.WHITE}viewbot v.1                                 {Fore.LIGHTMAGENTA_EX}║
-    {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[3]  {Fore.WHITE}viewbot v.2                                 {Fore.LIGHTMAGENTA_EX}║
-    {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[4]  {Fore.WHITE}Credits                                     {Fore.LIGHTMAGENTA_EX}║
-    {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[5]  {Fore.WHITE}Exit                                        {Fore.LIGHTMAGENTA_EX}║
-    {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}===================================================={Fore.YELLOW}[x]{Style.RESET_ALL}''')
+            {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}===================================================={Fore.YELLOW}[x]
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[1]  {Fore.WHITE}Watch Videos on a Channel (only YouTube)    {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[2]  {Fore.WHITE}viewbot v.1                                 {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[3]  {Fore.WHITE}viewbot v.2                                 {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[4]  {Fore.WHITE}Credits                                     {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[5]  {Fore.WHITE}Exit                                        {Fore.LIGHTMAGENTA_EX}║
+            {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}===================================================={Fore.YELLOW}[x]{Style.RESET_ALL}''')
     get_config()
     i1 = input(f"\n {inp} $ ")
 
