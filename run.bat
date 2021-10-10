@@ -1,9 +1,9 @@
 @echo off
 title Installing Requirements
-pip install colorama
-pip install requests
-pip install lxml
-pip install pypresence
-pip install selenium
+python -m pip install colorama
+python -m pip install requests
+python -m pip install lxml
+python -m pip install pypresence
+python -m pip install selenium
 python TerrificTools.py
 pause
