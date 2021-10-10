@@ -39,5 +39,5 @@ Other:
   - Links
 
 # Credits
-NullCode and Giggl3z -> Token Terminator
+NullCode and Giggl3z -> Token Terminator   
 All the people who made the librarys -> Python Librarys
