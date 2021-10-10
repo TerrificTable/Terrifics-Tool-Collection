@@ -910,7 +910,8 @@ def main():
             {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[3]{Style.RESET_ALL} Proxy Scraper   {Fore.LIGHTMAGENTA_EX}║
             {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[4]{Style.RESET_ALL} Nice Links      {Fore.LIGHTMAGENTA_EX}║
             {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[5]{Style.RESET_ALL} ViewBot         {Fore.LIGHTMAGENTA_EX}║
-            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[6]{Style.RESET_ALL} Pinger          {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[6]{Style.RESET_ALL} 2bQue           {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[7]{Style.RESET_ALL} Pinger          {Fore.LIGHTMAGENTA_EX}║
             {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[X]{Style.RESET_ALL} Exit            {Fore.LIGHTMAGENTA_EX}║
             {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}===================={Fore.YELLOW}[x]{Style.RESET_ALL}''')
         option = input(f" {inp} ")
@@ -925,6 +926,8 @@ def main():
         elif str(option) == "5":
             viewbot()
         elif str(option) == "6":
+            que()
+        elif str(option) == "7":
             pinger()
         else:
             exit()
