@@ -2,11 +2,9 @@
 A Collection of some tools in python
 
 # Installation
-Git Clone the repository: ```
-git clone https://github.com/TerrificTable/Terrifics-Tool-Collection```    
+Git Clone the repository: ```git clone https://github.com/TerrificTable/Terrifics-Tool-Collection```    
 now   
-You can install all modules manualy:```
-pip install colorama
+You can install all modules manualy:```pip install colorama
 pip install requests
 pip install lxml
 pip install pypresnce```   
