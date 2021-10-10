@@ -15,7 +15,7 @@ pip install selenium
 ```      
 or you can run the run.bat file, which will install all requirements and run the python file
 
-Features:
+# Features
 Discord:
   - TokenTerminater
   - TokenGen
