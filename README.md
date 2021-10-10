@@ -33,6 +33,12 @@ Viewbot:
   - ViewBot v.2
   - ChannelViewBot
 
+2bQue:
+  - Queue Length
+  - Players in Queue
+  - Players on Server
+  - Skin Downloader (it doesnt actualy download the skin it just opens the skin in a new browser tab)
+
 Other:
   - ProxyScraper
   - Pinger
