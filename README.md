@@ -6,7 +6,8 @@ Git Clone the repository:
 ```git clone https://github.com/TerrificTable/Terrifics-Tool-Collection```    
 now   
 You can install all modules manualy:    
-```pip install colorama
+```
+pip install colorama
 pip install requests
 pip install lxml
 pip install pypresnce
