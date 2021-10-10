@@ -1,6 +1,3 @@
-from re import S
-
-
 try:
     from colorama import Fore, Style
     from os import system as cmd
