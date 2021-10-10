@@ -5,10 +5,11 @@ A Collection of some tools in python
 Git Clone the repository: ```
 git clone https://github.com/TerrificTable/Terrifics-Tool-Collection```    
 now   
-You can install all modules manualy: ```
+You can install all modules manualy:```
 pip install colorama
 pip install requests
-pip install lxml```   
+pip install lxml
+pip install pypresnce```   
 or you can run the run.bat file, which will install all requirements and run the python file
 
 Features:
