@@ -3,6 +3,7 @@ try:
     from os import system as cmd
     import requests
     from lxml.html import fromstring
+    import os
     import time
     import sys
     import random
@@ -509,7 +510,37 @@ def changeinfo():
 
     except KeyboardInterrupt:
         main()
+    except:
+        main()
 
+
+def generateCheck():
+    try:
+        os.system('cls' if os.name == 'nt' else 'clear')
+        while True:
+            code = ''.join(random.choices(
+                string.ascii_uppercase + string.digits + string.ascii_lowercase,
+                k=16
+            ))
+
+            url = f"https://discordapp.com/api/v6/entitlements/gift-codes/{code}?with_application=false&with_subscription_plan=true"
+            s = requests.session()
+            response = s.get(url)
+
+            nitro = f'{Fore.LIGHTBLACK_EX}https://discord.gift/{Fore.RESET}' + code
+
+            if 'subscription_plan' in response.text:
+                print(f'{Fore.LIGHTGREEN_EX}Valid code{Fore.RESET} | {nitro}')
+                print("FOUND CODE")
+                with open("code.txt", "w") as f:
+                    f.write(nitro)
+                break
+
+            else:
+                print(f'{Fore.LIGHTRED_EX}Invalid{Fore.RESET} | {nitro}')
+                continue
+    except KeyboardInterrupt:
+        main()
     except:
         main()
 
@@ -557,11 +588,12 @@ def discordtools():
         cmd(f'mode 115, 30')
         cmd("title [Terrifics-Tools.py - Discord-Tools]")
         print(f'''
-            {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}===================={Fore.YELLOW}[x]
-            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[1]{Style.RESET_ALL} Terminate Token {Fore.LIGHTMAGENTA_EX}║
-            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[2]{Style.RESET_ALL} Generate Token  {Fore.LIGHTMAGENTA_EX}║
-            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[X]{Style.RESET_ALL} Exit            {Fore.LIGHTMAGENTA_EX}║
-            {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}===================={Fore.YELLOW}[x]{Style.RESET_ALL}''')
+            {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}=========================={Fore.YELLOW}[x]
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[1]{Style.RESET_ALL} Terminate Token       {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[2]{Style.RESET_ALL} Generate Token        {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[3]{Style.RESET_ALL} Nitro Gen and Checker {Fore.LIGHTMAGENTA_EX}║
+            {Fore.LIGHTMAGENTA_EX} ║  {Fore.RED}[X]{Style.RESET_ALL} Exit                  {Fore.LIGHTMAGENTA_EX}║
+            {Fore.YELLOW}[x]{Fore.LIGHTMAGENTA_EX}=========================={Fore.YELLOW}[x]{Style.RESET_ALL}''')
         i = input(f" {inp}")
         if str(i) == "1":
             terminate()
@@ -569,6 +601,10 @@ def discordtools():
             discordtools()
         elif str(i) == "2":
             Tokengen()
+            input()
+            discordtools()
+        elif str(i) == "3":
+            generateCheck()
             input()
             discordtools()
         elif str(i) == "x":
@@ -655,6 +691,4 @@ def singleutils():
         main()
     except:
         main()
-
-
 main()
